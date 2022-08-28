@@ -1,6 +1,6 @@
 INSERT INTO messages(
    user_id ,
-  listing_id,
+  product_id,
   message,
   date_sent
 )

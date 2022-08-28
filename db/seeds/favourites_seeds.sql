@@ -1,6 +1,6 @@
 INSERT INTO favourites (
   user_id,
-  listing_id,
+  product_id,
   date_favourited
 )
 VALUES (1 ,1 ,'2022-02-02' ),

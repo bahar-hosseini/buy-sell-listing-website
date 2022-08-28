@@ -1,6 +1,6 @@
 INSERT INTO purchases (
   user_id,
-  listing_id,
+  product_id,
   purchase_date
 )
 VALUES (1, 1, '2022-02-02'),
