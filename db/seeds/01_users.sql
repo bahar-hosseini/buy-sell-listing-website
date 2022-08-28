@@ -1,3 +1,6 @@
 -- Users table seeds here (Example)
-INSERT INTO users (name) VALUES ('Alice');
-INSERT INTO users (name) VALUES ('Kira');
+-- Example code to start of the midterm project
+
+
+-- INSERT INTO users (name) VALUES ('Alice');
+-- INSERT INTO users (name) VALUES ('Kira');
