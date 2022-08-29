@@ -1,17 +1,19 @@
 // Client facing scripts here
-$(() => {
-  $('#fetch-products').on('click', () => {
-    $.ajax({
-      method: 'GET',
-      url: '/api/home'
-    })
-      .done((response) => {
-        const $productList = $('#products');
-        $productList.empty();
 
-        for (const product of response.products) {
-          $(`<li class="user">`).text(product.name).appendTo($productList);
-        }
-      });
-  });
+// This script loads product info when the page loads
+$(document).ready(function() {
+
+  // Load product information
+  $.ajax({
+    method: 'GET',
+    url: '/api/products'
+  })
+    .done((response) => {
+      const $productsList = $('#products');
+      $productsList.empty();
+
+      for (const product of response.products) {
+        $(`<li class="product">`).text(product.name).appendTo($productsList);
+      }
+    });
 });
