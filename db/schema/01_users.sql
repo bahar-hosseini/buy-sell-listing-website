@@ -1,4 +1,5 @@
 -- Drop and recreate Users table (Example)
+-- Example code to start the midterm project
 
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE users (
