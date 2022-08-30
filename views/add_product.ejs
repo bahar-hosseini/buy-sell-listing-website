@@ -16,24 +16,22 @@
 
   <!-- Link scripts here-->
   <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/add_product.js"></script>
 </head>
 
 <body>
   <h1>  Add new product </h1>
- <form action="/api/products" method="POST">
-  <input type="text" name="name" placeholder="Item name">
+  <h5 id="error"></h5>
+ <form id="addProductForm" action="/api/products" method="POST">
+  <input id="name" type="text" name="name" placeholder="Item name" required>
   <br>
-  <input type="textfield" name="info" placeholder="Item description">
+  <input id="desc" type="textfield" name="info" placeholder="Item description" required>
   <br>
-  <input type="text" name="imgUrl" placeholder="Image URL">
+  <input id="img" type="text" name="imgUrl" placeholder="Image URL" required>
   <br>
-  <input type="text" name="price" placeholder="Price">
-
-
+  <input id="price" type="text" name="price" placeholder="Price" required>
   <br>
-
-
-  <button type="submit"> Add product </button>
+  <button type="submit" > Add product </button>
  </form>
 </body>
 

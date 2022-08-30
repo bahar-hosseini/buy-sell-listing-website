@@ -8,9 +8,6 @@ const getProducts = () => {
 };
 
 const addProduct = ({name, price, imgUrl, info }) => {
-  if (typeof name !== "") {
-    return "Invalid input";
-  }
 return db.query(`INSERT INTO products(
   user_id,
   name,
@@ -25,7 +22,9 @@ RETURNING *;
 `, [name, price, imgUrl, info])
 .then(data => {
   return data;
-});
+})
+
 };
+
 
 module.exports = { getProducts , addProduct };
