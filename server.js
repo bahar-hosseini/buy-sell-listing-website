@@ -36,6 +36,10 @@ const homeRoutes = require('./routes/home');
 const productsApiRoutes = require('./routes/products-api');
 
 
+const messages = require('./routes/messages');
+const messageApiRoute = require('./routes/messages-api');
+
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -46,6 +50,9 @@ app.use('/users', usersRoutes);
 app.use('/home', homeRoutes);
 app.use('/api/products', productsApiRoutes);
 
+
+app.use('/messages',messages);
+app.use('/api/messages',messageApiRoute);
 
 // Note: mount other resources here, using the same pattern above
 
