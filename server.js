@@ -34,7 +34,11 @@ const usersRoutes = require('./routes/users');
 
 const homeRoutes = require('./routes/home');
 
-const productsApiRoutes = require('./routes/products-api');
+
+const productsApiRoutes = require('./routes/home-api');
+
+
+const productRoutes = require('./routes/product');
 
 
 
@@ -50,9 +54,9 @@ app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 
-
 app.use('/home', homeRoutes);
-app.use('/api/products', productsApiRoutes);
+app.use ('/api/home',productsApiRoutes);
+app.use('/product', productRoutes);
 
 
 app.use('/messages',messages);
