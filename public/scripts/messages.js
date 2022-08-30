@@ -3,6 +3,8 @@
 
 // A Function to create each product element
 const appendMessage = (messageObj) =>{
+  // escape function to prevent xxs
+
   const productTemplate = `
   <div class="product-message">
   <h2>${messageObj.product}</h2>
@@ -15,6 +17,25 @@ const appendMessage = (messageObj) =>{
 };
 
 
+
+const $messageForm = $('form');
+$messageForm.submit((event)=>{
+  event.preventDefault();
+  $.ajax({
+    type: 'POST',
+    url:'/api/messages',
+    data: $messageForm.serialize(),
+  })
+    .done((res)=>{
+      // window.location.reload(true);
+      console.log('ajax post succes',res);
+    })
+    .fail(err =>console.log('ajax post failure:',err));
+});
+
+
+
+
 // This script loads product info when the page loads
 $(document).ready(function() {
 
@@ -24,8 +45,6 @@ $(document).ready(function() {
     url: '/api/messages'
   })
     .done((response) => {
-      // const $productsList = $('#products');
-      // $productsList.empty();
 
       console.log(response.messages);
       for (const message of response.messages) {

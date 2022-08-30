@@ -8,7 +8,7 @@ const getUserMsg = (id) =>{
   JOIN users ON users.id = user_id
   JOIN products ON  products.id = product_id;`)
     .then(data => {
-      return data.rows;
+      return data.rows[0];
     });
 };
 
@@ -20,7 +20,7 @@ const addMessage =  function(msg) {
       messages(message)
       VALUES($1)
       RETURNING *;`,
-    [msg.messages])
+    [msg.message])
     .then((result) => {
       console.log(result.rows[0]);
       return result.rows[0];

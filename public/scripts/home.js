@@ -28,8 +28,6 @@ $(document).ready(function() {
     url: '/api/products'
   })
     .done((response) => {
-      const $productsList = $('#products');
-      $productsList.empty();
 
       console.log(response.products);
       for (const product of response.products) {

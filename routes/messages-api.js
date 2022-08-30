@@ -2,10 +2,13 @@ const express = require('express');
 const router  = express.Router();
 const messageQueries = require('../db/queries/user_messages');
 
-router.get('/', (req, res) => {
-  messageQueries.getUserMsg()
+//post request to send a new message
+router.post('/', (req, res) => {
+  const msg = req.body;
+  console.log('----------->',msg);
+  messageQueries.addMessage(msg)
     .then(messages => {
-      // console.log('this is apiiiiiiiii',messages);
+      console.log('POST NEW MESSAGE: api ---->',messages);
       res.json({ messages });
     })
     .catch(err => {
@@ -16,10 +19,12 @@ router.get('/', (req, res) => {
 });
 
 
-router.post('/', (req, res) => {
-  messageQueries.addMessage()
+
+//get request to message page
+router.get('/', (req, res) => {
+  messageQueries.getUserMsg()
     .then(messages => {
-      console.log('this is apiiiiiiiii',messages);
+      // console.log('GET all MESSAGES: api ---->',messages);
       res.json({ messages });
     })
     .catch(err => {
