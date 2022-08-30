@@ -30,7 +30,7 @@ $messageForm.submit((event)=>{
     data: $messageForm.serialize(),
   })
     .done((res)=>{
-      console.log('ajax post succes',res);
+      console.log('ajax post success',res);
       // window.location.reload(true);
     })
     .fail(err =>console.log('ajax post failure:',err));

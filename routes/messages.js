@@ -3,7 +3,7 @@ const router  = express.Router();
 
 //
 router.get('/', (req, res) => {
-  let templateVar = {userId : 1};
+  let templateVar = {userId : 1,productId :1};
   res.render(`messages`,templateVar);
 });
 
