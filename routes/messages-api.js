@@ -6,6 +6,7 @@ const messageQueries = require('../db/queries/user_messages');
 router.post('/', (req, res) => {
   const msg = req.body;
   console.log('----------->',msg);
+  //TO DO : Add user id and product id to addmss fuction
   messageQueries.addMessage(msg)
     .then(messages => {
       console.log('POST NEW MESSAGE: api ---->',messages);
@@ -22,7 +23,10 @@ router.post('/', (req, res) => {
 
 //get request to message page
 router.get('/', (req, res) => {
-  messageQueries.getUserMsg()
+  //TO DO :create helper function get product messages
+  // messageQueries.getUsertMsg()
+  messageQueries.getProductMsg()
+
     .then(messages => {
       // console.log('GET all MESSAGES: api ---->',messages);
       res.json({ messages });

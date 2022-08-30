@@ -18,6 +18,9 @@ const appendMessage = (messageObj) =>{
 
 
 
+
+
+
 const $messageForm = $('form');
 $messageForm.submit((event)=>{
   event.preventDefault();
@@ -27,8 +30,8 @@ $messageForm.submit((event)=>{
     data: $messageForm.serialize(),
   })
     .done((res)=>{
-      // window.location.reload(true);
       console.log('ajax post succes',res);
+      // window.location.reload(true);
     })
     .fail(err =>console.log('ajax post failure:',err));
 });
@@ -46,7 +49,7 @@ $(document).ready(function() {
   })
     .done((response) => {
 
-      console.log(response.messages);
+      console.log('THIS IS RESPONSE.MESSAGE',response.messages);
       for (const message of response.messages) {
         appendMessage(message);
       }
