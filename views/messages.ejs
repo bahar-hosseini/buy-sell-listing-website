@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messages</title>
+
+    <!-- Link stylesheets here-->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="/styles/messages.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
+
+    <!-- Link scripts here-->
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script defer src="/scripts/messages.js"></script>
+  </head>
+  <body>
+    <nav></nav>
+    <main>
+      <div class="messages-container">
+        <!-- <div class="product-message">
+          <h2>Product Name</h2>
+          <p>msg user</p>
+          <p>msg Admin</p>
+        </div> -->
+      </div>
+      <div class="new-message">
+        <h2>New Message</h2>
+        <form action="/messages">
+          <textarea name="text" rows="1" cols="50"></textarea>
+          <input type="hidden" value="<%= userId %>" name="userid" />
+          <input type="hidden" value="<%= productId%>" name="productid" />
+          <button type="submit">SUBMIT</button>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>
