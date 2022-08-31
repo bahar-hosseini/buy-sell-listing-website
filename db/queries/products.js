@@ -7,6 +7,9 @@ const getProducts = () => {
     });
 };
 
+
+// Query to add product(new listing)
+
 const addProduct = ({name, price, imgUrl, info }) => {
 return db.query(`INSERT INTO products(
   user_id,
@@ -26,5 +29,13 @@ RETURNING *;
 
 };
 
+// Query to remove a product(listing) based on its ID
 
-module.exports = { getProducts , addProduct };
+const removeProduct = (productId) => {
+  return db.query(`DELETE * FROM products WHERE id = $1 RETURNING *`, [productId])
+  .then(data =>{
+    return data;
+  } )
+}
+
+module.exports = { getProducts , addProduct , removeProduct};
