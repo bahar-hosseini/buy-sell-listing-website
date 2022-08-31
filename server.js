@@ -5,6 +5,7 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const session =  require('express-session');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -25,6 +26,8 @@ app.use(
     isSass: false, // false => scss, true => sass
   })
 );
+
+app.use(session({ secret: 'lighthouselab', resave: false, saveUninitialized: true, }));
 app.use(express.static('public'));
 
 // Separated Routes for each Resource
@@ -43,17 +46,13 @@ const favouritesRoutes = require('./routes/favourites');
 
 
 const loginRoute = require('./routes/signin');
+const loginApiRoute = require('./routes/signin-api');
 
 const productsApiRoutes = require('./routes/home-api');
 
 
-
-
-
 const messages = require('./routes/messages');
 const messageApiRoute = require('./routes/messages-api');
-
-
 
 
 // Mount all resource routes
@@ -75,6 +74,7 @@ app.use('/api/messages',messageApiRoute);
 app.use('/api/products',productsApiRoutes2);
 
 app.use('/signin',loginRoute);
+app.use('/api/signin',loginApiRoute);
 
 // Note: mount other resources here, using the same pattern above
 
@@ -85,9 +85,6 @@ app.use('/signin',loginRoute);
 app.get('/', (req, res) => {
   res.render('index');
 });
-
-
-
 
 
 app.listen(PORT, () => {
