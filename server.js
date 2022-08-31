@@ -38,6 +38,8 @@ const productsApiRoutes2 = require('./routes/products-api');
 
 const productsRoutes = require('./routes/products')
 const productRoutes = require('./routes/product');
+const favouritesRoutes = require('./routes/favourites');
+
 
 
 
@@ -63,6 +65,7 @@ app.use('/users', usersRoutes);
 app.use('/home', homeRoutes);
 app.use ('/api/home',productsApiRoutes);
 app.use('/product', productRoutes);
+app.use('/favourites', favouritesRoutes);
 
 app.use('/products', productsRoutes);
 
