@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Display Single Product Page</title>
+  <title>Favourites Page</title>
 
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
@@ -22,21 +22,22 @@
   <!-- Add the header -->
   <%- include('partials/_header') %>
 
-  <h1>Display Single Product Page</h1>
+  <h1>Favourites Page</h1>
 
-  <!-- Example using EJS: Display the product name -->
-  <h2><%= product["name"] %></h2>
-
-  <!-- Display the product image -->
-  <img src=<%= product["photo_url"] %> alt="Product" width="500">
 
   <ul>
-  <!-- Iterate through the product attributes and display them -->
-  <% for(const info in product) { %>
-    <%= info %>: <%= product[info] %>
-    <br>
-  <% } %>
+    <% for(const key in favourites) { %>
+      <h3>Favourite <%= favourites[key]["favourite_id"] %>:</h3>
+      <img src=<%= favourites[key]["photo_url"] %> alt="Product" width="200"><br>
+      Product Name: <%= favourites[key]["product_name"] %> <br>
+      Favourited By: <%= favourites[key]["user_name"] %> <br>
+      Date Favourited: <%= favourites[key]["date_favourited"] %> <br>
+      ----------
+      <br>
+
+    <% } %>
   </ul>
+
 </body>
 
 </html>
