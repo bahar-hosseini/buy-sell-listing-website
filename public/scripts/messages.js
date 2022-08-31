@@ -8,7 +8,7 @@ const appendMessage = (messageObj) =>{
   const productTemplate = `
   <div class="product-message">
   <h2>${messageObj.product}</h2>
-  <img src="${messageObj.photo}"/>
+  <a href="/product/${messageObj.product_id}"><img src="${messageObj.photo}"/></a>
   <p>${messageObj.username}: ${messageObj.message}</p>
    <p>msg Admin</p>
 </div>
