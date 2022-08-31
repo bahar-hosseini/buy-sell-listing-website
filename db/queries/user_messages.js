@@ -13,10 +13,10 @@ const db = require('../connection');
 // };
 
 
-
+//Query to show all messages
 const getProductMsg = (id) =>{
   return db.query(`SELECT messages.* ,
-  products.name as product, products.photo_url as photo,products.id as productid
+  products.name as product, products.photo_url as photo,products.id as productid,
   users.name as username
    FROM  messages
   JOIN users ON users.id = user_id
@@ -28,7 +28,7 @@ const getProductMsg = (id) =>{
 
 
 
-
+//Query to add a new message
 const addMessage =  function(msg) {
   return db.query(
     `INSERT INTO

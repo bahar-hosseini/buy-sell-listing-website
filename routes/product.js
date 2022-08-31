@@ -8,6 +8,7 @@
 const express = require('express');
 const router  = express.Router();
 const productQueries = require('../db/queries/product');
+const messageQueries = require('../db/queries/user_messages');
 
 
 // The GET route for the
@@ -15,7 +16,6 @@ router.get('/:id', (req, res) => {
 
   // Store the product ID
   let id = req.params.id;
-
   // Create a templateVars object
   let templateVars = {};
 
@@ -31,6 +31,8 @@ router.get('/:id', (req, res) => {
       // Store the product info in templateVars
       templateVars["product"] = products[0];
 
+      templateVars["userId"] = 1;
+
       // Render the product.ejs view and pass templateVars to the view
       res.render('product', templateVars);
     })
@@ -41,6 +43,14 @@ router.get('/:id', (req, res) => {
         .json({ error: err.message });
     });
 });
+
+
+
+
+
+
+
+
 
 
 module.exports = router;
