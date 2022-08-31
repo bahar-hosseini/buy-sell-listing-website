@@ -31,10 +31,12 @@ $(document).ready(function() {
       const $productsList = $('#products');
       $productsList.empty();
 
+
       console.log(response.products);
       for (const product of response.products) {
         appendProduct(product);
+        $(`<li class="product">`).text(product.name).appendTo($productsList);
       }
-    });
 
+    });
 });

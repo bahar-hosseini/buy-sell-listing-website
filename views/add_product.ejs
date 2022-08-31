@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home Page</title>
+
+  <meta charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+  <!-- Link stylesheets here-->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/home.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+
+  <!-- Link scripts here-->
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/add_product.js"></script>
+</head>
+
+<body>
+   <!-- Add the header -->
+   <%- include('partials/_header') %>
+
+  <h1>  Add new product </h1>
+
+  <h5 id="error"></h5>
+ <form id="addProductForm" action="/api/products" method="POST">
+  <input id="name" type="text" name="name" placeholder="Item name" required>
+  <br>
+  <input id="desc" type="textfield" name="info" placeholder="Item description" required>
+  <br>
+  <input id="img" type="text" name="imgUrl" placeholder="Image URL" required>
+  <br>
+  <input id="price" type="text" name="price" placeholder="Price" required>
+  <br>
+  <button type="submit" > Add product </button>
+ </form>
+</body>
+
+</html>

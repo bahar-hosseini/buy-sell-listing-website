@@ -14,4 +14,16 @@ router.get('/', (req, res) => {
     });
 });
 
+router.post('/', (req, res) => {
+  productQueries.addProduct(req.body)
+   .then(data => {
+    console.log(data);
+   // alert ("Product added!")
+    res.redirect('/home')
+    //res.json({data});
+   })
+  console.log(req.body)
+  //res.render('home')
+})
+
 module.exports = router;
