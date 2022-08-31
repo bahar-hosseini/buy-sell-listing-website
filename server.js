@@ -36,8 +36,6 @@ const homeRoutes = require('./routes/home');
 const productsApiRoutes = require('./routes/home-api');
 
 
-
-
 const productRoutes = require('./routes/product');
 
 

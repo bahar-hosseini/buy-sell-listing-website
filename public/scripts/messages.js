@@ -18,36 +18,25 @@ const appendMessage = (messageObj) =>{
 
 
 
-
-
-
-
-
-// This script loads product info when the page loads
+// This script loads messages when the page loads
 $(document).ready(function() {
 
   // Ajax message post
   const $messageForm = $('#messsage-form');
   $messageForm.submit((event)=>{
     event.preventDefault();
-    console.log('hello world');
     $.ajax({
       type: 'POST',
       url:'/api/messages',
       data: $messageForm.serialize(),
     })
       .done((res)=>{
-        console.log('ajax post success',res);
-        $(`ul`).append(`${res.messages.message}`)
-      // window.location.reload(true);
+        // console.log('ajax post success',res);
+        $(`ul`).append(`${res.messages.message}`);
       })
       .fail(err =>console.log('ajax post failure:',err));
   });
 
-
-
-
-  console.log('new test');
   // Load product information
   $.ajax({
     method: 'GET',
@@ -55,19 +44,9 @@ $(document).ready(function() {
   })
     .done((response) => {
 
-      console.log('THIS IS RESPONSE.MESSAGE',response.messages);
+      // console.log('THIS IS RESPONSE.MESSAGE',response.messages);
       for (const message of response.messages) {
         appendMessage(message);
       }
     });
-
-
-
-
-  // $('#messsage-form').submit((event)=>{
-  //   alert('test ')
-  //   event.preventDefault();
-  //   console.log('hello world');
-  // });
-
 });
