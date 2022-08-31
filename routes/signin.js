@@ -17,13 +17,13 @@ router.post('/', (req,res) =>{
   queryUser.getUser(email)
   //for now Just works with our db data!!
     .then(response => {
-      const userId = req.session['user_id'] = response.id;
-
+      req.session['user_id'] = response.id;
+console.log(response)
       if (response.is_admin) {
-        const authorized = req.session['authorized'] = true;
+        req.session['authorized'] = true;
         res.redirect('/home');
       } else {
-        const authorized = req.session['authorized'] = false;
+        req.session['authorized'] = false;
         res.redirect('/home');
       }
 
@@ -33,8 +33,6 @@ router.post('/', (req,res) =>{
         .status(500)
         .json({ error: err.message });
     });
-  //   const userId = req.session['user_id'] = q;
-  // res.send('hello world');
 });
 
 module.exports = router;

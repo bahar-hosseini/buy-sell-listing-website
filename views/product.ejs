@@ -31,10 +31,11 @@
     <!-- Display the product image -->
     <img src=<%= product["photo_url"] %> alt="Product" width="500">
 
-   <!-- IN STOCK feature -->
-    <h2 id="in-stock">IN STOCK</h2>
-    <button id="isSold">SOLD</button>
-
+     <!-- IN STOCK feature -->
+     <h2 id="in-stock">IN STOCK</h2>
+    <% if(isAuthorized){ %>
+      <button id="isSold">SOLD</button>
+   <% } %>
 
     <ul>
       <!-- Iterate through the product attributes and display them -->
@@ -43,13 +44,15 @@
       <% } %>
     </ul>
     <!----------------------Adding a remove product button ----------------->
+    <% if(isAuthorized){ %>
     <div class="remove-product">
       <form id="del" action="/api/products/delete" method="post">
         <input type="hidden" value="<%= product["id"]%>" name="productId" />
         <button type="submit">Remove product</button>
       </form>
-
     </div>
+       <% } %>
+
 
     <!------------ Adding a new message------------->
     <div class="new-message">

@@ -35,6 +35,14 @@ router.get('/:id', (req, res) => {
       templateVars["userId"] = req.session['user_id'];
       templateVars["productid"] = id;
 
+      // if (req.session.authorized) {
+      templateVars["isAuthorized"] =  req.session.authorized;
+      // console.log(req.session)
+      console.log(templateVars)
+      // } else {
+      //   templateVars["is-authorized"] = false;
+      // }
+
       // Render the product.ejs view and pass templateVars to the view
       res.render('product', templateVars);
     })
