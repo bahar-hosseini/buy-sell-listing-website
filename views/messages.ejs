@@ -1,30 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
-
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messages</title>
 
     <!-- Link stylesheets here-->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
     <link rel="stylesheet" href="/vendor/border-box.css" />
-    <link rel="stylesheet" href="/styles/home.css" />
+    <link rel="stylesheet" href="/styles/messages.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
 
     <!-- Link scripts here-->
     <script src="/vendor/jquery-3.0.0.js"></script>
-    <script defer src="/scripts/home.js"></script>
+    <script defer src="/scripts/messages.js"></script>
   </head>
-
   <body>
-    <nav></nav>
-    <header>
-      <h1>This is the Home page!</h1>
-    </header>
-    <section></section>
-    <button id="fetch-products">TEST BUTTON</button>
-    <ul id="products"></ul>
+    <nav><%- include('partials/_header') %></nav>
+    <main>
+      <div class="messages-container">
+        <!-- <div class="product-message">
+          <h2>Product Name</h2>
+          <p>msg user</p>
+          <p>msg Admin</p>
+        </div> -->
+      </div>
+    </main>
   </body>
 </html>

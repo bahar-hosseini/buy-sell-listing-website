@@ -20,7 +20,11 @@
 </head>
 
 <body>
+   <!-- Add the header -->
+   <%- include('partials/_header') %>
+
   <h1>  Add new product </h1>
+
   <h5 id="error"></h5>
  <form id="addProductForm" action="/api/products" method="POST">
   <input id="name" type="text" name="name" placeholder="Item name" required>

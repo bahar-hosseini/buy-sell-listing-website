@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Display Single Product Page</title>
 
-<head>
-  <title>Display Single Product Page</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <!-- Link stylesheets here-->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" />
+    <link rel="stylesheet" href="/styles/home.css" />
+    <link rel="stylesheet" href="/styles/layout.css" />
 
-  <!-- Link stylesheets here-->
-  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
-  <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/home.css" />
-  <link rel="stylesheet" href="/styles/layout.css" />
+    <!-- Link scripts here-->
+    <script src="/vendor/jquery-3.0.0.js"></script>
+    <script src="/scripts/messages.js"></script>
+  </head>
 
-  <!-- Link scripts here-->
-  <script src="/vendor/jquery-3.0.0.js"></script>
-</head>
+  <body>
+    <!-- Add the header -->
+    <%- include('partials/_header') %>
 
-<body>
-  <!-- Add the header -->
-  <%- include('partials/_header') %>
+    <h1>Display Single Product Page</h1>
 
-  <h1>Display Single Product Page</h1>
+    <!-- Example using EJS: Display the product name -->
+    <h2><%= product["name"] %></h2>
 
-  <!-- Example using EJS: Display the product name -->
-  <h2><%= product["name"] %></h2>
+    <!-- Display the product image -->
+    <img src=<%= product["photo_url"] %> alt="Girl in a jacket" width="500">
 
-  <!-- Display the product image -->
-  <img src=<%= product["photo_url"] %> alt="Girl in a jacket" width="500">
-
-  <ul>
-  <!-- Iterate through the product attributes and display them -->
-  <% for(const info in product) { %>
-    <%= info %>: <%= product[info] %>
-    <br>
-  <% } %>
-  </ul>
-</body>
-
+    <ul>
+      <!-- Iterate through the product attributes and display them -->
+      <% for(const info in product) { %> <%= info %>: <%= product[info] %>
+      <br />
+      <% } %>
+    </ul>
+    <!------------ Adding a new message------------->
+    <div class="new-message">
+      <h2>New Message</h2>
+      <form id="messsage-form" action="/api/messages" method="post">
+        <textarea name="text" rows="1" cols="50"></textarea>
+        <input type="hidden" value="<%= userId %>" name="userid" />
+        <!-- <input type="hidden" value="<%=product['id']%>" name="productid" /> -->
+        <button type="submit">SUBMIT</button>
+      </form>
+    </div>
+  </body>
 </html>
