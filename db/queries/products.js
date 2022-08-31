@@ -32,7 +32,7 @@ RETURNING *;
 // Query to remove a product(listing) based on its ID
 
 const removeProduct = (productId) => {
-  return db.query(`DELETE * FROM products WHERE id = $1 RETURNING *`, [productId])
+  return db.query(`DELETE FROM products WHERE products.id = $1`, [productId])
   .then(data =>{
     return data;
   } )

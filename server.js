@@ -43,7 +43,6 @@ const productsApiRoutes2 = require('./routes/products-api');
 const productsRoutes = require('./routes/products')
 const productRoutes = require('./routes/product');
 const favouritesRoutes = require('./routes/favourites');
-const removeProduct = require('./routes/products-api');
 
 const loginRoute = require('./routes/signin');
 const loginApiRoute = require('./routes/signin-api');
@@ -72,7 +71,6 @@ app.use('/products', productsRoutes);
 app.use('/messages',messages);
 app.use('/api/messages',messageApiRoute);
 app.use('/api/products',productsApiRoutes2);
-app.use('/api/products/delete', removeProduct);
 
 app.use('/signin',loginRoute);
 app.use('/api/signin',loginApiRoute);

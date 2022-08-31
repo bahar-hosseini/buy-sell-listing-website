@@ -22,6 +22,7 @@ router.post('/', (req, res) => {
 
   //Query the project
   productQueries.addProduct(req.body)
+  messageQueries.getProductMsg(req.body)
    .then(data => {
     console.log(data);
     // redirects to home page
@@ -31,10 +32,11 @@ router.post('/', (req, res) => {
 })
 
 // The POST rout for removing a product(listing)
-router.post('/:id', (req, res) => {
+router.post('/delete', (req, res) => {
 
     // Store the product ID
-    let id = req.params.id;
+    let id = req.body.productId;
+    console.log(id);
     // Create a templateVars object
     let templateVars = {};
 
@@ -47,8 +49,8 @@ router.post('/:id', (req, res) => {
   })
 })
 
-  productQueries.addProduct(req.body);
-  messageQueries.getProductMsg(req.body)
+
+
 
 
 module.exports = router;

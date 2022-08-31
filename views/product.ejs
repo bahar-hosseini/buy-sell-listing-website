@@ -39,7 +39,8 @@
     </ul>
     <!----------------------Adding a remove product button ----------------->
     <div class="remove-product">
-      <form id="del" action="/api/products" method="post">
+      <form id="del" action="/api/products/delete" method="post">
+        <input type="hidden" value="<%= product["id"]%>" name="productId" />
         <button type="submit">Remove product</button>
       </form>
 
