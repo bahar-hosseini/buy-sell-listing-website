@@ -31,8 +31,8 @@ $(document).ready(function() {
       data: $messageForm.serialize(),
     })
       .done((res)=>{
-        // console.log('ajax post success',res);
-        $(`ul`).append(`${res.messages.message}`);
+        console.log('ajax post success',res);
+        $('#list-messages').append(`${res.messages.message}`);
       })
       .fail(err =>console.log('ajax post failure:',err));
   });
@@ -50,3 +50,8 @@ $(document).ready(function() {
       }
     });
 });
+
+
+
+
+

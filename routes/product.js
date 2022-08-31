@@ -32,6 +32,7 @@ router.get('/:id', (req, res) => {
       templateVars["product"] = products[0];
 
       templateVars["userId"] = 1;
+      templateVars["productid"] = id;
 
       // Render the product.ejs view and pass templateVars to the view
       res.render('product', templateVars);
