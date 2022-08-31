@@ -1,9 +1,11 @@
 const express = require('express');
 const router  = express.Router();
 const productQueries = require('../db/queries/products');
+const messageQueries = require('../db/queries/user_messages');
 
 router.get('/', (req, res) => {
   productQueries.getProducts()
+
     .then(products => {
       res.json({ products });
     })
@@ -17,6 +19,7 @@ router.get('/', (req, res) => {
 
 // The POST route for adding new product(listing)
 router.post('/', (req, res) => {
+
   //Query the project
   productQueries.addProduct(req.body)
    .then(data => {
@@ -43,5 +46,9 @@ router.post('/:id', (req, res) => {
     res.redirect('/home')
   })
 })
+
+  productQueries.addProduct(req.body);
+  messageQueries.getProductMsg(req.body)
+
 
 module.exports = router;

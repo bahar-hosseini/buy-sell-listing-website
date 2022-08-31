@@ -8,7 +8,7 @@ const appendMessage = (messageObj) =>{
   const productTemplate = `
   <div class="product-message">
   <h2>${messageObj.product}</h2>
-  <img src="${messageObj.photo}"/>
+  <a href="/product/${messageObj.product_id}"><img src="${messageObj.photo}"/></a>
   <p>${messageObj.username}: ${messageObj.message}</p>
    <p>msg Admin</p>
 </div>
@@ -31,8 +31,8 @@ $(document).ready(function() {
       data: $messageForm.serialize(),
     })
       .done((res)=>{
-        // console.log('ajax post success',res);
-        $(`ul`).append(`${res.messages.message}`);
+        console.log('ajax post success',res);
+        $('#list-messages').append(`${res.messages.message}`);
       })
       .fail(err =>console.log('ajax post failure:',err));
   });
@@ -50,3 +50,8 @@ $(document).ready(function() {
       }
     });
 });
+
+
+
+
+

@@ -5,6 +5,7 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
+const session =  require('express-session');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -14,6 +15,7 @@ app.set('view engine', 'ejs');
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -24,6 +26,8 @@ app.use(
     isSass: false, // false => scss, true => sass
   })
 );
+
+app.use(session({ secret: 'lighthouselab', resave: false, saveUninitialized: true, }));
 app.use(express.static('public'));
 
 // Separated Routes for each Resource
@@ -41,18 +45,14 @@ const productRoutes = require('./routes/product');
 const favouritesRoutes = require('./routes/favourites');
 const removeProduct = require('./routes/products-api');
 
-
+const loginRoute = require('./routes/signin');
+const loginApiRoute = require('./routes/signin-api');
 
 const productsApiRoutes = require('./routes/home-api');
 
 
-
-
-
 const messages = require('./routes/messages');
 const messageApiRoute = require('./routes/messages-api');
-
-
 
 
 // Mount all resource routes
@@ -74,6 +74,9 @@ app.use('/api/messages',messageApiRoute);
 app.use('/api/products',productsApiRoutes2);
 app.use('/api/products/delete', removeProduct);
 
+app.use('/signin',loginRoute);
+app.use('/api/signin',loginApiRoute);
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -84,6 +87,9 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+
