@@ -34,7 +34,7 @@ const usersRoutes = require('./routes/users');
 
 const homeRoutes = require('./routes/home');
 
-const productsApiRoutes = require('./routes/products-api');
+const productsApiRoutes2 = require('./routes/products-api');
 
 const productsRoutes = require('./routes/products')
 const productRoutes = require('./routes/product');
@@ -44,7 +44,6 @@ const productRoutes = require('./routes/product');
 const productsApiRoutes = require('./routes/home-api');
 
 
-const productRoutes = require('./routes/product');
 
 
 
@@ -69,7 +68,7 @@ app.use('/products', productsRoutes);
 
 app.use('/messages',messages);
 app.use('/api/messages',messageApiRoute);
-
+app.use('/api/products',productsApiRoutes2);
 
 // Note: mount other resources here, using the same pattern above
 
