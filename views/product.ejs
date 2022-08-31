@@ -43,9 +43,12 @@
       <form id="messsage-form" action="/api/messages" method="post">
         <textarea name="text" rows="1" cols="50"></textarea>
         <input type="hidden" value="<%= userId %>" name="userid" />
-        <!-- <input type="hidden" value="<%=product['id']%>" name="productid" /> -->
+        <input type="hidden" value="<%=productid%>" name="productid" />
         <button type="submit">SUBMIT</button>
       </form>
+      <div class="message-container">
+        <ul id="list-messages"></ul>
+      </div>
     </div>
   </body>
 </html>
