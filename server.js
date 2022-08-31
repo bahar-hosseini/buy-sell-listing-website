@@ -42,7 +42,7 @@ const productRoutes = require('./routes/product');
 const favouritesRoutes = require('./routes/favourites');
 
 
-
+const loginRoute = require('./routes/signin');
 
 const productsApiRoutes = require('./routes/home-api');
 
@@ -73,6 +73,8 @@ app.use('/products', productsRoutes);
 app.use('/messages',messages);
 app.use('/api/messages',messageApiRoute);
 app.use('/api/products',productsApiRoutes2);
+
+app.use('/signin',loginRoute);
 
 // Note: mount other resources here, using the same pattern above
 
