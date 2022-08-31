@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <title>Display Single Product Page</title>
 
@@ -17,6 +16,7 @@
     <!-- Link scripts here-->
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script src="/scripts/messages.js"></script>
+    <script src="/scripts/stock.js"></script>
   </head>
 
   <body>
@@ -30,6 +30,11 @@
 
     <!-- Display the product image -->
     <img src=<%= product["photo_url"] %> alt="Product" width="500">
+
+   <!-- IN STOCK feature -->
+    <h2 id="in-stock">IN STOCK</h2>
+    <button id="isSold">SOLD</button>
+
 
     <ul>
       <!-- Iterate through the product attributes and display them -->
