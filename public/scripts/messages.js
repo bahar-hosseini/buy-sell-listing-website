@@ -44,7 +44,7 @@ $(document).ready(function() {
   })
     .done((response) => {
 
-      // console.log('THIS IS RESPONSE.MESSAGE',response.messages);
+      console.log('THIS IS RESPONSE.MESSAGE',response.messages);
       for (const message of response.messages) {
         appendMessage(message);
       }
