@@ -37,7 +37,8 @@ router.get('/', (req, res) => {
           .json({ error: err.message });
       });
   } else {
-    return res.send('you can not have access');
+    res.redirect('/signin');
+    //return res.send('you can not have access');
   }
 });
 

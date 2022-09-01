@@ -27,8 +27,12 @@
 
   <ul>
     <% for(const key in favourites) { %>
+
+      <!-- Store product Id -->
+      <% let productId = favourites[key]["product_id"] %>
+
       <h3>Favourite <%= favourites[key]["favourite_id"] %>:</h3>
-      <img src=<%= favourites[key]["photo_url"] %> alt="Product" width="200"><br>
+      <a href=<%=`/product/${productId}` %>> <img src=<%= favourites[key]["photo_url"] %> alt="Product" width="200"> </a> <br>
       Product Name: <%= favourites[key]["product_name"] %> <br>
       Favourited By: <%= favourites[key]["user_name"] %> <br>
       Date Favourited: <%= favourites[key]["date_favourited"] %> <br>
