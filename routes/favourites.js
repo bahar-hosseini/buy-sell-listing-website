@@ -31,12 +31,15 @@ router.get('/', (req, res) => {
       res.render('favourites', templateVars);
     })
     // Error handling
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
-
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  } else {
+    res.redirect('/signin');
+    //return res.send('you can not have access');
+  }
 });
 
 

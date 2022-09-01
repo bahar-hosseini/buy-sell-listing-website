@@ -22,20 +22,20 @@
   <!-- Add the header -->
   <%- include('partials/_header') %>
 
-  <h1>Favourites Page</h1>
-
+  <h1>My Purchases Page</h1>
 
   <ul>
-    <% for(const key in favourites) { %>
+    <% for(const key in myPurchases) { %>
 
-      <!-- Store product Id -->
-      <% let productId = favourites[key]["product_id"] %>
+      <!-- Store purchase Id -->
+      <% let purchaseId = myPurchases[key]["purchase_id"] %>
 
-      <h3>Favourite <%= favourites[key]["favourite_id"] %>:</h3>
-      <a href=<%=`/product/${productId}` %>> <img src=<%= favourites[key]["photo_url"] %> alt="Product" width="200"> </a> <br>
-      Product Name: <%= favourites[key]["product_name"] %> <br>
-      Favourited By: <%= favourites[key]["user_name"] %> <br>
-      Date Favourited: <%= favourites[key]["date_favourited"] %> <br>
+      <h3>Purchase <%= purchaseId %>:</h3>
+
+      <a href=<%=`/product/${purchaseId}` %>> <img src=<%= myPurchases[key]["photo_url"] %> alt="Product" width="200"> </a> <br>
+      Product Name: <%= myPurchases[key]["product_name"] %> <br>
+      Purchased By: <%= myPurchases[key]["user_name"] %> <br>
+      Purchase Date: <%= myPurchases[key]["purchase_date"] %> <br>
       ----------
       <br>
 
