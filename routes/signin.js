@@ -18,7 +18,6 @@ router.post('/', (req,res) =>{
   //for now Just works with our db data!!
     .then(response => {
       req.session['user_id'] = response.id;
-console.log(response)
       if (response.is_admin) {
         req.session['authorized'] = true;
         res.redirect('/home');
