@@ -22,8 +22,6 @@ router.get('/', (req, res) => {
   favouritesQueries.getFavourites(userId)
     .then(favourites => {
 
-
-
       // Store the favourites info in templateVars
       templateVars["favourites"] = favourites;
 
@@ -31,15 +29,12 @@ router.get('/', (req, res) => {
       res.render('favourites', templateVars);
     })
     // Error handling
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  } else {
-    res.redirect('/signin');
-    //return res.send('you can not have access');
-  }
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+
 });
 
 
