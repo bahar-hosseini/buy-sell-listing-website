@@ -49,9 +49,10 @@ const loginApiRoute = require('./routes/signin-api');
 
 const productsApiRoutes = require('./routes/home-api');
 
-
 const messages = require('./routes/messages');
 const messageApiRoute = require('./routes/messages-api');
+
+const myPurchasesRoutes = require('./routes/mypurchases');
 
 
 // Mount all resource routes
@@ -62,7 +63,7 @@ app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 
 app.use('/home', homeRoutes);
-app.use ('/api/home',productsApiRoutes);
+app.use('/api/home',productsApiRoutes);
 app.use('/product', productRoutes);
 app.use('/favourites', favouritesRoutes);
 
@@ -74,6 +75,11 @@ app.use('/api/products',productsApiRoutes2);
 
 app.use('/signin',loginRoute);
 app.use('/api/signin',loginApiRoute);
+
+app.use('/mypurchases', myPurchasesRoutes);
+
+//app.use('/myPurchases', myPurchasesRoutes);
+
 
 // Note: mount other resources here, using the same pattern above
 
