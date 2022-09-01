@@ -20,7 +20,8 @@ const getProductMsg = (id) =>{
   users.name as username
    FROM  messages
   JOIN users ON users.id = user_id
-  JOIN products ON  products.id = product_id;`)
+  JOIN products ON  products.id = product_id
+  WHERE users.id=$1;`,[id])
     .then(data => {
       return data.rows;
     });
