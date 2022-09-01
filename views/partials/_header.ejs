@@ -42,12 +42,25 @@
     align-items: center;
     justify-content: center;
   }
+
+  .logo {
+    text-decoration: none;
+    color: black;
+
+    /* Disable text selection highlighting */
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
   </style>
 </head>
 
 <header>
   <div class="banner">
-    Our Online Store
+    <a class="logo" href="/home">Our Online Store</a>
   </div>
   <div class="topnav">
     <a href="/home">Home</a>
