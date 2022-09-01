@@ -9,6 +9,9 @@
   .topnav {
     overflow: hidden;
     background-color: #333;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
   }
 
   .topnav a {
@@ -29,12 +32,25 @@
     background-color: #000000;
     color: white;
   }
+
+  .banner {
+    height: 150px;
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   </style>
 </head>
 
 <header>
+  <div class="banner">
+    Our Online Store
+  </div>
   <div class="topnav">
-    <a class="active" href="/home">Home</a>
+    <a href="/home">Home</a>
     <a href="/filter">Filter</a>
     <a href="/product/1">Product Detail</a>
     <a href="/products/new">Add Listing</a>
