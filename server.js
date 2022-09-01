@@ -42,8 +42,9 @@ const productsApiRoutes2 = require('./routes/products-api');
 
 const productsRoutes = require('./routes/products')
 const productRoutes = require('./routes/product');
-const favouritesRoutes = require('./routes/favourites');
 
+const favouritesRoutes = require('./routes/favourites');
+const favouritesApiRoutes = require('./routes/favourites-api');
 const loginRoute = require('./routes/signin');
 const loginApiRoute = require('./routes/signin-api');
 
@@ -64,7 +65,7 @@ app.use('/users', usersRoutes);
 app.use('/home', homeRoutes);
 app.use ('/api/home',productsApiRoutes);
 app.use('/product', productRoutes);
-app.use('/favourites', favouritesRoutes);
+
 
 app.use('/products', productsRoutes);
 
@@ -75,6 +76,8 @@ app.use('/api/products',productsApiRoutes2);
 app.use('/signin',loginRoute);
 app.use('/api/signin',loginApiRoute);
 
+app.use('/favourites', favouritesRoutes);
+app.use('/api/favourites',favouritesApiRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page

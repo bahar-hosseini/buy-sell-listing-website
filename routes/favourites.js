@@ -13,32 +13,30 @@ const session =  require('express-session');
 
 router.get('/', (req, res) => {
 
-  if (req.session.authorized) {
+  // Create a templateVars object
+  let templateVars = {};
+
+  const userId = req.session['user_id'];
+
+  // Query the favourites
+  favouritesQueries.getFavourites(userId)
+    .then(favourites => {
 
 
-    // Create a templateVars object
-    let templateVars = {};
 
+      // Store the favourites info in templateVars
+      templateVars["favourites"] = favourites;
 
-    // Query the favourites
-    favouritesQueries.getFavourites()
-      .then(favourites => {
-
-        // Store the favourites info in templateVars
-        templateVars["favourites"] = favourites;
-
-        // Render the favourites.ejs view and pass templateVars to the view
-        res.render('favourites', templateVars);
-      })
+      // Render the favourites.ejs view and pass templateVars to the view
+      res.render('favourites', templateVars);
+    })
     // Error handling
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  } else {
-    return res.send('you can not have access');
-  }
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+
 });
 
 

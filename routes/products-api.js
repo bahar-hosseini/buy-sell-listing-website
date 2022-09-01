@@ -21,33 +21,33 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
 
   //Query the project
-  productQueries.addProduct(req.body)
+  productQueries.addProduct(req.body);
   messageQueries.getProductMsg(req.body)
-   .then(data => {
-    console.log(data);
-    // redirects to home page
-    res.redirect('/home')
-   })
-  console.log(req.body)
-})
+    .then(data => {
+      console.log(data);
+      // redirects to home page
+      res.redirect('/home');
+    });
+  console.log(req.body);
+});
 
 // The POST rout for removing a product(listing)
 router.post('/delete', (req, res) => {
 
-    // Store the product ID
-    let id = req.body.productId;
-    console.log(id);
-    // Create a templateVars object
-    let templateVars = {};
+  // Store the product ID
+  let id = req.body.productId;
+  console.log(id);
+  // Create a templateVars object
+  let templateVars = {};
 
-    // Query the project
+  // Query the project
   productQueries.removeProduct(id)
-  .then(data => {
-    console.log(data);
-    // redirects to home page
-    res.redirect('/home')
-  })
-})
+    .then(data => {
+      console.log(data);
+      // redirects to home page
+      res.redirect('/home');
+    });
+});
 
 
 
