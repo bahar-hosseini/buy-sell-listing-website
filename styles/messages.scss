@@ -1,29 +1,28 @@
 main{
   display: flexbox;
   flex-flow: column wrap;
-.messages-container{
-  margin: 5%;
-  .product-message{
-    border: solid black;
-    margin-bottom: 3%;
-    img{
-      width: 100px;
-      height: 100px;
+  .messages-container{
+    margin: 5%;
+
+    .product-message{
+      border: solid #dddddd;
+      margin-bottom: 3%;
+      padding-left: 25px;
+
+      img{
+        max-width: 100px;
+        height: 100px;
+      }
     }
   }
 
+  .new-message{
+    margin: 5%;
+    textarea{
+      resize: none;
+      width: 75vw;
 
-
-}
-.new-message{
-  margin: 5%;
-  textarea{
-    resize: none;
-    width: 75vw;
-
+    }
   }
-}
-
-
 }
 

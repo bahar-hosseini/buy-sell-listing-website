@@ -4,13 +4,14 @@ main {
 }
 main .messages-container {
   margin: 5%;
+  padding-left: 20px;
 }
 main .messages-container .product-message {
-  border: solid black;
+  border: solid #dddddd;
   margin-bottom: 3%;
 }
 main .messages-container .product-message img {
-  width: 100px;
+  max-width: 100px;
   height: 100px;
 }
 main .new-message {

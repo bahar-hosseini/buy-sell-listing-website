@@ -31,11 +31,14 @@
       <% for(const key in myPurchases) { %>
 
         <div class="purchase">
+          <!-- Store product Id -->
+          <% let productId = myPurchases[key]["product_id"] %>
+
           <!-- Store purchase Id -->
           <% let purchaseId = myPurchases[key]["purchase_id"] %>
 
           <h3>Purchase <%= purchaseId %>: <%= myPurchases[key]["product_name"] %></h3>
-          <a href=<%=`/product/${purchaseId}` %>> <img src=<%= myPurchases[key]["photo_url"] %> alt="Product" width="200"> </a> <br>
+          <a href=<%=`/product/${productId}` %>> <img src=<%= myPurchases[key]["photo_url"] %> alt="Product" width="200"> </a> <br>
           <br>
           <b>Purchased By:</b> <%= myPurchases[key]["user_name"] %> <br>
           <br>

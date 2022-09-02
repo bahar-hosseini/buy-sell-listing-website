@@ -103,6 +103,10 @@ app.get('/', (req, res) => {
   res.redirect('/home');
 });
 
+app.get('/logout', (req, res) => {
+  //res.render('index');
+  res.redirect('/home');
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

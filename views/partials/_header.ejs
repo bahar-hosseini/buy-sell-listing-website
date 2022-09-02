@@ -63,11 +63,12 @@
     <a class="logo" href="/home">Our Online Store</a>
   </div>
   <div class="topnav">
-
-
     <a href="/home">Home</a>
     <a href="/api/filter">Filter</a>
-    <a href="/product/1">Product Detail</a>
+
+    <!-- Generate a random product ID -->
+    <% let productId = Math.floor(Math.random() * 12) + 1 %>
+    <a href=<%=`/product/${productId}`%>>Random Product</a>
     <a href="/products/new">Add Listing</a>
     <a href="/mypurchases">My Purchases</a>
     <a href="/messages">Messages</a>
