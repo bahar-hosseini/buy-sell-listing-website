@@ -33,59 +33,56 @@
     <!-- Add the header -->
     <%- include('partials/_header') %>
 
-    <h1>Display Single Product Page</h1>
+    <div class="product-display">
 
-    <!-- Example using EJS: Display the product name -->
-    <h2><%= product["name"] %></h2>
+      <div class="product-image">
+        <div class="image">
+          <img src=<%= product["photo_url"] %> alt="Product" width="500">
+        </div>
+      </div>
 
-    <!-- Display the product image -->
-    <img src=<%= product["photo_url"] %> alt="Product" width="500">
+      <div class="product-info">
 
+        <!-- Display the product name -->
+        <h1><%= product["name"] %></h1>
+        <h2>$<%= product["price"] %>.00</h2>
 
+        <!-- IN STOCK feature -->
+        <h3 id="in-stock">IN STOCK</h3>
+        <% if(isAuthorized){ %>
+          <button id="isSold">SOLD</button>
+        <% } %>
 
-     <!-- IN STOCK feature -->
-     <h2 id="in-stock">IN STOCK</h2>
-    <% if(isAuthorized){ %>
-      <button id="isSold">SOLD</button>
-   <% } %>
+        <p><%= product["description"] %></p>
 
-       <!-- Heart for font awseome-->
-       <form method="post" action="/api/favourites">
-        <input type="hidden" value="<%= product["id"]%>" name="productId" />
-        <button ><i id="notLiked" class="fa-regular fa-heart fa-2xl"></i></button>
-        <!-- <i id="liked" class="fa-solid fa-heart fa-2xl"fa-2xl></i> -->
-      </form>
-
-
-    <ul>
-      <!-- Iterate through the product attributes and display them -->
-      <% for(const info in product) { %> <%= info %>: <%= product[info] %>
-      <br />
-      <% } %>
-    </ul>
-    <!----------------------Adding a remove product button ----------------->
-    <% if(isAuthorized){ %>
-    <div class="remove-product">
-      <form id="del" action="/api/products/delete" method="post">
-        <input type="hidden" value="<%= product["id"]%>" name="productId" />
-        <button type="submit">Remove product</button>
-      </form>
-    </div>
-       <% } %>
+        <p>Date Posted: <%= product["date_posted"].toDateString() %></p>
 
 
-    <!------------ Adding a new message------------->
-    <div class="new-message">
-      <h2>New Message</h2>
-      <form id="messsage-form" action="/api/messages" method="post">
-        <textarea name="text" rows="1" cols="50"></textarea>
-        <input type="hidden" value="<%= userId %>" name="userid" />
-        <input type="hidden" value="<%=productid%>" name="productid" />
-        <button type="submit">SUBMIT</button>
-      </form>
-      <div class="message-container">
-        <ul id="list-messages"></ul>
+        <!-- Heart for font awesome-->
+        <form method="post" action="/api/favourites">
+          <input type="hidden" value="<%= product["id"]%>" name="productId" />
+          <button ><i id="notLiked" class="fa-regular fa-heart fa-2xl"></i></button>
+          <!-- <i id="liked" class="fa-solid fa-heart fa-2xl"fa-2xl></i> -->
+        </form>
+
+        <br>
+        <br>
+
+        <!-- Message seller -->
+        <div class="new-message">
+          <h3>Message Seller</h3>
+          <form id="messsage-form" action="/api/messages" method="post">
+            <textarea name="text" rows="1" cols="50"></textarea>
+            <input type="hidden" value="<%= userId %>" name="userid" />
+            <input type="hidden" value="<%=productid%>" name="productid" />
+            <button type="submit">Send</button>
+          </form>
+          <div class="message-container">
+            <ul id="list-messages"></ul>
+          </div>
+        </div>
       </div>
     </div>
+
   </body>
 </html>
