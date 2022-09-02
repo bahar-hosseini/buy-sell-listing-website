@@ -35,8 +35,8 @@ router.get('/:id', (req, res) => {
 
       templateVars["productid"] = id;
       templateVars["method"] = 'email';
-      templateVars["method"] = 'message';
-      templateVars["method"] = 'app';
+      // templateVars["method"] = 'message';
+      // templateVars["method"] = 'app';
 
       templateVars["isAuthorized"] =  req.session.authorized;
 
