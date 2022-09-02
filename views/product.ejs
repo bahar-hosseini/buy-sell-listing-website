@@ -52,7 +52,7 @@
        <!-- Heart for font awseome-->
        <form method="post" action="/api/favourites">
         <input type="hidden" value="<%= product["id"]%>" name="productId" />
-        <button ><i id="notLiked" class="fa-regular fa-heart fa-2xl"></i></button>
+        <button id="notLiked"><i class="fa-regular fa-heart fa-2xl"></i></button>
         <!-- <i id="liked" class="fa-solid fa-heart fa-2xl"fa-2xl></i> -->
       </form>
 
@@ -77,11 +77,16 @@
     <!------------ Adding a new message------------->
     <div class="new-message">
       <h2>New Message</h2>
-      <form id="messsage-form" action="/api/messages" method="post">
+      <form id="messsage-form" class='form-group' action="/api/messages" method="post">
         <textarea name="text" rows="1" cols="50"></textarea>
         <input type="hidden" value="<%= userId %>" name="userid" />
         <input type="hidden" value="<%=productid%>" name="productid" />
-        <button type="submit">SUBMIT</button>
+        <button value="<%=method["app"]%>" type="submit">SEND</button>
+            <!------------ Adding a new message------------->
+            <% if(isAuthorized){ %>
+            <input type="submit" value="<%=method["email"]%>" />
+            <button value="<%=method["message"]%>"  id="message" type="submit">SEND MESSAGE</button>
+            <% } %>
       </form>
       <div class="message-container">
         <ul id="list-messages"></ul>

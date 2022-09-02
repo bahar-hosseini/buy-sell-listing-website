@@ -8,13 +8,13 @@ const appendMessage = (messageObj) =>{
   <div class="product-message">
   <h2>${messageObj.product}</h2>
   <a href="/product/${messageObj.product_id}"><img src="${messageObj.photo}"/></a>
-  <p>${messageObj.username}: ${messageObj.message}</p>
-   <p>msg Admin</p>
+  <p> Username: ${messageObj.username}</p>
+  <p> Message: ${messageObj.message}</p>
+
 </div>
   `;
   $('.messages-container').append(productTemplate);
 };
-
 
 
 // This script loads messages when the page loads

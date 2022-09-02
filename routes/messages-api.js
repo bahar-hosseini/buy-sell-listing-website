@@ -1,8 +1,6 @@
 const express = require('express');
 const router  = express.Router();
 const messageQueries = require('../db/queries/user_messages');
-const session =  require('express-session');
-
 
 //post request to send a new message
 router.post('/', (req, res) => {
@@ -24,19 +22,33 @@ router.post('/', (req, res) => {
 
 //get request to message page
 router.get('/', (req, res) => {
-
   const userId = req.session['user_id'];
-  messageQueries.getProductMsg(userId)
 
-    .then(messages => {
-      res.json({ messages });
-    })
-    .catch(err => {
-      console.error(err);
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+  if (req.session['authorized']) {
+    messageQueries.getAdminProductMsg(userId)
+      .then(messages => {
+        res.json({ messages });
+      })
+      .catch(err => {
+        console.error(err);
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+
+  } else {
+    messageQueries.getUserProductMsg(userId)
+      .then(messages => {
+        res.json({ messages });
+      })
+      .catch(err => {
+        console.error(err);
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  }
+
 });
 
 module.exports = router;
