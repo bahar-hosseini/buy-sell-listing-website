@@ -22,18 +22,33 @@ router.post('/', (req, res) => {
 
 //get request to message page
 router.get('/', (req, res) => {
+  const userId = req.session['user_id'];
 
-  messageQueries.getProductMsg()
+  if (req.session['authorized']) {
+    messageQueries.getAdminProductMsg(userId)
+      .then(messages => {
+        res.json({ messages });
+      })
+      .catch(err => {
+        console.error(err);
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
 
-    .then(messages => {
-      res.json({ messages });
-    })
-    .catch(err => {
-      console.error(err);
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+  } else {
+    messageQueries.getUserProductMsg(userId)
+      .then(messages => {
+        res.json({ messages });
+      })
+      .catch(err => {
+        console.error(err);
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  }
+
 });
 
 module.exports = router;
