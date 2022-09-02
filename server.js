@@ -42,6 +42,9 @@ const productsApiRoutes2 = require('./routes/products-api');
 
 const productsRoutes = require('./routes/products')
 const productRoutes = require('./routes/product');
+const filter = require('./routes/filter')
+
+
 
 const favouritesRoutes = require('./routes/favourites');
 const favouritesApiRoutes = require('./routes/favourites-api');
@@ -71,6 +74,8 @@ app.use('/favourites', favouritesRoutes);
 app.use('/api/favourites',favouritesApiRoutes);
 
 app.use('/products', productsRoutes);
+app.use('/api/filter', filter)
+
 
 app.use('/messages',messages);
 app.use('/api/messages',messageApiRoute);
