@@ -10,13 +10,23 @@
     <!-- Link stylesheets here-->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
     <link rel="stylesheet" href="/vendor/border-box.css" />
-    <link rel="stylesheet" href="/styles/home.css" />
+    <link rel="stylesheet" href="/styles/product.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
+
+    <!-- Font awesome-->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 
     <!-- Link scripts here-->
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script src="/scripts/messages.js"></script>
     <script src="/scripts/stock.js"></script>
+    <script src="/scripts/favourite.js"></script>
   </head>
 
   <body>
@@ -31,9 +41,20 @@
     <!-- Display the product image -->
     <img src=<%= product["photo_url"] %> alt="Product" width="500">
 
-   <!-- IN STOCK feature -->
-    <h2 id="in-stock">IN STOCK</h2>
-    <button id="isSold">SOLD</button>
+
+
+     <!-- IN STOCK feature -->
+     <h2 id="in-stock">IN STOCK</h2>
+    <% if(isAuthorized){ %>
+      <button id="isSold">SOLD</button>
+   <% } %>
+
+       <!-- Heart for font awseome-->
+       <form method="post" action="/api/favourites">
+        <input type="hidden" value="<%= product["id"]%>" name="productId" />
+        <button ><i id="notLiked" class="fa-regular fa-heart fa-2xl"></i></button>
+        <!-- <i id="liked" class="fa-solid fa-heart fa-2xl"fa-2xl></i> -->
+      </form>
 
 
     <ul>
@@ -43,13 +64,15 @@
       <% } %>
     </ul>
     <!----------------------Adding a remove product button ----------------->
+    <% if(isAuthorized){ %>
     <div class="remove-product">
       <form id="del" action="/api/products/delete" method="post">
         <input type="hidden" value="<%= product["id"]%>" name="productId" />
         <button type="submit">Remove product</button>
       </form>
-
     </div>
+       <% } %>
+
 
     <!------------ Adding a new message------------->
     <div class="new-message">

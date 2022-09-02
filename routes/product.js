@@ -35,6 +35,8 @@ router.get('/:id', (req, res) => {
       templateVars["userId"] = req.session['user_id'];
       templateVars["productid"] = id;
 
+      templateVars["isAuthorized"] =  req.session.authorized;
+
       // Render the product.ejs view and pass templateVars to the view
       res.render('product', templateVars);
     })
@@ -45,12 +47,6 @@ router.get('/:id', (req, res) => {
         .json({ error: err.message });
     });
 });
-
-
-
-
-
-
 
 
 

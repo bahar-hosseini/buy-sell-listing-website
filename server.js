@@ -45,14 +45,19 @@ const productRoutes = require('./routes/product');
 const favouritesRoutes = require('./routes/favourites');
 const filter = require('./routes/filter')
 
+
+
+const favouritesRoutes = require('./routes/favourites');
+const favouritesApiRoutes = require('./routes/favourites-api');
 const loginRoute = require('./routes/signin');
 const loginApiRoute = require('./routes/signin-api');
 
 const productsApiRoutes = require('./routes/home-api');
 
-
 const messages = require('./routes/messages');
 const messageApiRoute = require('./routes/messages-api');
+
+const myPurchasesRoutes = require('./routes/mypurchases');
 
 
 // Mount all resource routes
@@ -63,9 +68,11 @@ app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 
 app.use('/home', homeRoutes);
-app.use ('/api/home',productsApiRoutes);
+app.use('/api/home',productsApiRoutes);
 app.use('/product', productRoutes);
+
 app.use('/favourites', favouritesRoutes);
+app.use('/api/favourites',favouritesApiRoutes);
 
 app.use('/products', productsRoutes);
 app.use('/api/filter', filter)
@@ -73,10 +80,18 @@ app.use('/api/filter', filter)
 
 app.use('/messages',messages);
 app.use('/api/messages',messageApiRoute);
+
 app.use('/api/products',productsApiRoutes2);
 
 app.use('/signin',loginRoute);
 app.use('/api/signin',loginApiRoute);
+
+
+
+
+app.use('/mypurchases', myPurchasesRoutes);
+
+//app.use('/myPurchases', myPurchasesRoutes);
 
 // Note: mount other resources here, using the same pattern above
 
@@ -85,7 +100,8 @@ app.use('/api/signin',loginApiRoute);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  res.render('index');
+  //res.render('index');
+  res.redirect('/home');
 });
 
 

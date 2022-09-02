@@ -3,7 +3,6 @@
 
 // A Function to create each product element
 const appendMessage = (messageObj) =>{
-  // escape function to prevent xxs
 
   const productTemplate = `
   <div class="product-message">
@@ -44,7 +43,6 @@ $(document).ready(function() {
   })
     .done((response) => {
 
-      console.log('THIS IS RESPONSE.MESSAGE',response.messages);
       for (const message of response.messages) {
         appendMessage(message);
       }

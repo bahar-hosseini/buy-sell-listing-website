@@ -4,6 +4,7 @@ const router  = express.Router();
 
 //internal modules
 const productQueries = require('../db/queries/user_messages');
+// const sendLikeQueries = require('../db/queries/favourites');
 
 
 
@@ -13,6 +14,7 @@ router.post('/', (req, res) => {
 
   //TO DO : Add user id and product id to addmssg function
   productQueries.addMessage(msg)
+
     .then(messages => {
       res.json({ messages });
     })
