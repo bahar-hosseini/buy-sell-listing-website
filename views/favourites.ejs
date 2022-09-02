@@ -32,7 +32,7 @@
       <!-- Store product Id -->
       <% let productId = favourites[key]["product_id"] %>
 
-      <h3>Favourite <%= favourites[key]["favourite_id"] %>:</h3>
+      <br>
       <a href=<%=`/product/${productId}` %>> <img src=<%= favourites[key]["photo_url"] %> alt="Product" width="200"> </a> <br>
       <br>
       <b>Product Name:</b> <%= favourites[key]["product_name"] %> <br>
