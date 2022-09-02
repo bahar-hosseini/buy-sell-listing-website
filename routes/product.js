@@ -8,7 +8,6 @@
 const express = require('express');
 const router  = express.Router();
 const productQueries = require('../db/queries/product');
-const messageQueries = require('../db/queries/user_messages');
 const session =  require('express-session');
 
 
@@ -33,7 +32,11 @@ router.get('/:id', (req, res) => {
       templateVars["product"] = products[0];
 
       templateVars["userId"] = req.session['user_id'];
+
       templateVars["productid"] = id;
+      templateVars["method"] = 'email';
+      templateVars["method"] = 'message';
+      templateVars["method"] = 'app';
 
       templateVars["isAuthorized"] =  req.session.authorized;
 

@@ -8,3 +8,5 @@ VALUES ('Bahar', 'Bahar.Hosseini@gmail.com', '1234567',true),
        ('Michael', 'Michael.wang@gmail.com', 'qazwsx',true),
        ('John','John.d@gmail.com','aaaa',false),
        ('Jane','Jane.d@gmail.com','bbbb',false);
+       ('Dany','Dany.Lee@gmail.com','cccc',false),
+       ('Mark','Mark.sm@gmail.com','dddd',false);
