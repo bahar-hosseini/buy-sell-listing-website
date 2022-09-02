@@ -11,7 +11,7 @@
   <!-- Link stylesheets here-->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/home.css" />
+  <link rel="stylesheet" href="/styles/my-purchases.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
 
   <!-- Link scripts here-->
@@ -21,26 +21,30 @@
 <body>
   <!-- Add the header -->
   <%- include('partials/_header') %>
+  <br>
 
-  <h1>My Purchases Page</h1>
+  <h2 style="text-align: center">Purchases History</h2>
+  <br>
 
-  <ul>
-    <% for(const key in myPurchases) { %>
+  <div class="purchases-container">
+    <ul>
+      <% for(const key in myPurchases) { %>
 
-      <!-- Store purchase Id -->
-      <% let purchaseId = myPurchases[key]["purchase_id"] %>
+        <div class="purchase">
+          <!-- Store purchase Id -->
+          <% let purchaseId = myPurchases[key]["purchase_id"] %>
 
-      <h3>Purchase <%= purchaseId %>:</h3>
-
-      <a href=<%=`/product/${purchaseId}` %>> <img src=<%= myPurchases[key]["photo_url"] %> alt="Product" width="200"> </a> <br>
-      Product Name: <%= myPurchases[key]["product_name"] %> <br>
-      Purchased By: <%= myPurchases[key]["user_name"] %> <br>
-      Purchase Date: <%= myPurchases[key]["purchase_date"] %> <br>
-      ----------
-      <br>
-
-    <% } %>
-  </ul>
+          <h3>Purchase <%= purchaseId %>: <%= myPurchases[key]["product_name"] %></h3>
+          <a href=<%=`/product/${purchaseId}` %>> <img src=<%= myPurchases[key]["photo_url"] %> alt="Product" width="200"> </a> <br>
+          <br>
+          <b>Purchased By:</b> <%= myPurchases[key]["user_name"] %> <br>
+          <br>
+          <b>Purchase Date:</b> <%= myPurchases[key]["purchase_date"].toDateString() %> <br>
+          <br>
+        </div>
+      <% } %>
+    </ul>
+  </div>
 
 </body>
 
