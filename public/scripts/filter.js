@@ -9,7 +9,7 @@ const appendProduct = (productObj) =>{
   <div class="item">
     <h2>${productObj.name}</h2>
     <a href="/product/${productObj.id}"><img src="${productObj.photo_url}" /></a>
-    <p>price: $${productObj.price}</p>
+    <p style="font-weight: bold">$${productObj.price}.00</p>
     <details>
       <p>${productObj.description}</p>
     </details>
