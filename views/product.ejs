@@ -34,7 +34,6 @@
     <%- include('partials/_header') %>
 
     <div class="product-display">
-
       <div class="product-image">
         <div class="image">
           <img src=<%= product["photo_url"] %> alt="Product" width="500">
@@ -45,34 +44,60 @@
 
         <!-- Display the product name -->
         <h1><%= product["name"] %></h1>
-        <h2>$<%= product["price"] %>.00</h2>
 
-        <!-- IN STOCK feature -->
-        <h3 id="in-stock">IN STOCK</h3>
-        <% if(isAuthorized){ %>
-          <button id="isSold">SOLD</button>
-        <% } %>
+        <div class="price-and-in-stock">
+          <!-- Display the price -->
+          <h2>$<%= product["price"] %>.00</h2>
 
+          <!-- IN STOCK feature -->
+          <h3 id="in-stock">IN STOCK</h3>
+        </div>
+
+
+        <div class="buy-and-heart-button">
+          <!-- Buy button-->
+          <button class="buy-button">Buy Now</button>
+
+          <!-- Heart button-->
+          <form method="post" action="/api/favourites">
+            <input type="hidden" value="<%= product["id"]%>" name="productId" />
+            <button class="heart-button"><i id="notLiked" class="fa-regular fa-heart fa-2xl" style="font-size: 20px;"></i></button>
+            <!-- <i id="liked" class="fa-solid fa-heart fa-2xl"fa-2xl></i> -->
+          </form>
+        </div>
+
+        <br>
+
+        <!-- Display the description -->
         <p><%= product["description"] %></p>
 
+        <!-- Display the date posted -->
         <p>Date Posted: <%= product["date_posted"].toDateString() %></p>
 
+        <br>
 
-        <!-- Heart for font awesome-->
-        <form method="post" action="/api/favourites">
+        <!-- Mark as Sold button -->
+        <% if(isAuthorized){ %>
+          <button id="isSold" style="width: 120px">Mark as Sold</button>
+        <% } %>
+
+        <br>
+
+        <!-- Remove Product button -->
+        <% if(isAuthorized){ %>
+        <div class="remove-product">
+        <form id="del" action="/api/products/delete" method="post">
           <input type="hidden" value="<%= product["id"]%>" name="productId" />
-          <button ><i id="notLiked" class="fa-regular fa-heart fa-2xl"></i></button>
-          <!-- <i id="liked" class="fa-solid fa-heart fa-2xl"fa-2xl></i> -->
+          <button type="submit">Remove product</button>
         </form>
+        </div>
+        <% } %>
 
-        <br>
-        <br>
-
-        <!-- Message seller -->
+        <!-- Send Message button -->
         <div class="new-message">
           <h3>Message Seller</h3>
           <form id="messsage-form" action="/api/messages" method="post">
-            <textarea name="text" rows="1" cols="50"></textarea>
+            <textarea class="text-box" name="text" rows="1" cols="50"></textarea>
             <input type="hidden" value="<%= userId %>" name="userid" />
             <input type="hidden" value="<%=productid%>" name="productid" />
             <button type="submit">Send</button>
@@ -81,6 +106,7 @@
             <ul id="list-messages"></ul>
           </div>
         </div>
+
       </div>
     </div>
 
