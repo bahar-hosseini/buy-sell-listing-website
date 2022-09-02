@@ -1,5 +1,7 @@
 // Client facing scripts here
 
+const { format } = require("morgan");
+
 
 // A Function to create each product element
 const appendMessage = (messageObj) =>{
@@ -32,6 +34,7 @@ $(document).ready(function() {
       .done((res)=>{
         console.log('ajax post success',res);
         $('#list-messages').append(`${res.messages.message}`);
+
       })
       .fail(err =>console.log('ajax post failure:',err));
   });

@@ -100,7 +100,13 @@
             <textarea class="text-box" name="text" rows="1" cols="50"></textarea>
             <input type="hidden" value="<%= userId %>" name="userid" />
             <input type="hidden" value="<%=productid%>" name="productid" />
-            <button type="submit">Send</button>
+            <input value="<%=method["app"]%>" type="submit">Send</input>
+            <!------------ Adding a new message------------->
+            <% if(isAuthorized){ %>
+            <input type="submit" value="<%=method["email"]%>" />
+            <input type="submit" value="<%=method["message"]%>"  id="message" type="submit">SEND MESSAGE</input>
+           <%}%>
+
           </form>
           <div class="message-container">
             <ul id="list-messages"></ul>
