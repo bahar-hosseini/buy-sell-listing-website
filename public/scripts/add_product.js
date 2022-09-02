@@ -12,7 +12,7 @@ $(document).ready(()=> {
 
   form.addEventListener('submit', (e) => {
     let message = []
-    if (isNaN(price.value) ) {
+    if (isNaN(price.value) || price.value < 0 ) {
       message.push("Invalid price!")
     }
 
