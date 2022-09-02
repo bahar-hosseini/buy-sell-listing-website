@@ -1,0 +1,22 @@
+main {
+  display: flexbox;
+  flex-flow: column wrap;
+}
+main .messages-container {
+  margin: 5%;
+}
+main .messages-container .product-message {
+  border: solid black;
+  margin-bottom: 3%;
+}
+main .messages-container .product-message img {
+  width: 100px;
+  height: 100px;
+}
+main .new-message {
+  margin: 5%;
+}
+main .new-message textarea {
+  resize: none;
+  width: 75vw;
+}/*# sourceMappingURL=messages.css.map */
