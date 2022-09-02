@@ -1,0 +1,20 @@
+.text-field-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.text-field {
+  height: 40px;
+  width: 500px;
+}
+
+.description-text-field {
+  height: 120px;
+  width: 500px;
+}
+
+.button {
+  height: 40px;
+  width: 500px;
+}/*# sourceMappingURL=add-product.css.map */

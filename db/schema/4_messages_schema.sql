@@ -5,5 +5,6 @@ CREATE TABLE messages(
    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   product_id INTEGER REFERENCES products(id) ON DELETE CASCADE,
   message TEXT,
-  date_sent DATE
+  date_sent DATE,
+  method  VARCHAR(255) DEFAULT 'app'
 );
