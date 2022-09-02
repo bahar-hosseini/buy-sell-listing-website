@@ -12,13 +12,12 @@ const productQueries = require('../db/queries/user_messages');
 router.post('/', (req, res) => {
   const msg = req.body.text;
 
-
+// const email = req.body.email;
   //TO DO : Add user id and product id to addmssg function
   productQueries.addMessage(msg)
 
     res.redirect('/home');
 
-    /*
     .then(messages => {
       res.json({ messages });
     })
@@ -27,5 +26,4 @@ router.post('/', (req, res) => {
         .status(500)
         .json({ error: err.message });
     });
-    */
 });

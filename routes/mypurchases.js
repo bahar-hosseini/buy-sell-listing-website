@@ -14,18 +14,18 @@ router.get('/', (req, res) => {
   myPurchasesQueries.getMyPurchases()
     .then(myPurchases => {
 
-    // Store the myPurchases info in templateVars
-    templateVars["myPurchases"] = myPurchases;
+      // Store the myPurchases info in templateVars
+      templateVars["myPurchases"] = myPurchases;
 
-    // Render the my_purchases view and pass templateVars to the view
-    res.render('my_purchases', templateVars);
-  })
+      // Render the my_purchases view and pass templateVars to the view
+      res.render('my_purchases', templateVars);
+    })
   // Error handling
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 
 });
 

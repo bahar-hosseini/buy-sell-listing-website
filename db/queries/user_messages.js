@@ -34,11 +34,12 @@ const getAdminProductMsg = (id) =>{
 
 //Query to add a new message
 const addMessage =  function(msg) {
+
   return db.query(
     `INSERT INTO
-      messages(message,user_id,product_id)
-      VALUES($1,$2,$3)
-      RETURNING *;`,
+        messages(message,user_id,product_id)
+        VALUES($1,$2,$3)
+        RETURNING *;`,
     [msg.text,msg.userid,msg.productid])
     .then((result) => {
       console.log(result.rows[0]);

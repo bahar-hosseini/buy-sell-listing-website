@@ -22,17 +22,13 @@ router.post('/', (req, res) => {
 
   //Query the project
   productQueries.addProduct(req.body);
-
-    res.redirect('/home');
-
-    /*
     messageQueries.getProductMsg(req.body)
     .then(data => {
       console.log(data);
       // redirects to home page
       res.redirect('/home');
     });
-    */
+
 
   console.log(req.body);
 });

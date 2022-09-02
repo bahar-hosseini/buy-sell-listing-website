@@ -1,8 +1,5 @@
 // Client facing scripts here
 
-const { format } = require("morgan");
-
-
 // A Function to create each product element
 const appendMessage = (messageObj) =>{
 
