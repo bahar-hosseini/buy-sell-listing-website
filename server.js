@@ -42,7 +42,6 @@ const productsApiRoutes2 = require('./routes/products-api');
 
 const productsRoutes = require('./routes/products')
 const productRoutes = require('./routes/product');
-const favouritesRoutes = require('./routes/favourites');
 const filter = require('./routes/filter')
 
 
