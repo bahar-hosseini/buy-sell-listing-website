@@ -16,6 +16,9 @@ router.post('/', (req, res) => {
   //TO DO : Add user id and product id to addmssg function
   productQueries.addMessage(msg)
 
+    res.redirect('/home');
+
+    /*
     .then(messages => {
       res.json({ messages });
     })
@@ -24,4 +27,5 @@ router.post('/', (req, res) => {
         .status(500)
         .json({ error: err.message });
     });
+    */
 });
