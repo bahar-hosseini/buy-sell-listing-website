@@ -1,7 +1,7 @@
 # Buy/Sell Listing Website
 
 An online store app where admins can post different types of products to sell, remove items, or mark them as SOLD! Users are able to favorite items to check up on them later, filter items by price, and also send messages to admin to negotiate the price. Admins can reply to the user by the app and email.
-------
+
 
 ## Screenshots
 #### Header
