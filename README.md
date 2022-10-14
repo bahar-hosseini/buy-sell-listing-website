@@ -2,7 +2,6 @@
 
 An online store app where admins can post different types of products to sell, remove items, or mark them as SOLD! Users are able to favorite items to check up on them later, filter items by price, and also send messages to admin to negotiate the price. Admins can reply to the user by the app and email.
 ------
-#### Contributors: Bahar Hosseini, Netsanet Asfaw, Michael Wang
 
 ## Screenshots
 #### Header
@@ -50,4 +49,7 @@ An online store app where admins can post different types of products to sell, r
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+
+## Contributors: Bahar Hosseini, Netsanet Asfaw, Michael Wang
+
 
